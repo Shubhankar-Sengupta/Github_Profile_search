@@ -2,8 +2,6 @@
     box-sizing: border-box;
 }
 
-
-
 :root {
     /*Design System*/
 
@@ -15,11 +13,10 @@
     --light-full-saturationwhite:#F6F8FF;
     --light-nosaturation-white:#FEFEFE;
 
-
     
     /*Dark Mode colors --hsl colors*/
     --dark-pure-white: hsl(0,0%, 100%);
-    --dark-blue-black:hsl(220,40%, 30%);
+    --dark-blue-black:hsla(220,40%, 13%,1);
     --dark-blue:hsl(222,41%, 20%);
 
 
@@ -39,9 +36,6 @@
     --font-h4: 'Space Mono', monospace;
     --h4-weight:400;
 
-
-    /*Grid for content Lorem ipsum*/
-    --grid-content: grid;
 }
 
 
@@ -53,6 +47,7 @@ body {
     font-family: var(--font-body);
     font-weight: var(--body-weight);
     background-color: var(--light-full-saturationwhite);
+    /* background-color: var(--one--solid-fill); */
 }
 
 
@@ -87,7 +82,6 @@ body {
     grid-gap:5px;
     grid-template-columns: minmax(15px , 2fr) minmax(400px, 5fr) 2fr;
     grid-auto-rows: 75px;
-    overflow-x: hidden;
 }
 
 .img-fluid {
@@ -199,13 +193,11 @@ body {
     align-self: center;
 }
 
-
 #basic-addon1 {
     background-color: var(--light-nosaturation-white);
     padding-left: .35em;
     border: none;
 }
-
 
 
 @media(max-width:768px) {
@@ -268,4 +260,68 @@ body {
         height: auto;
     }
 
+}
+
+/*Classes through JavaScript*/
+
+.frm-control-add::placeholder {
+    color: var(--dark-pure-white);
+}
+
+.header {
+    color: var(--dark-pure-white);
+}
+
+.input-box {
+    background-color: var(--dark-blue);
+    color: var(--dark-pure-white);
+}
+
+.body-background {
+    background-color: var(--dark-blue-black);
+    transition: all 1s ease-out;
+}
+
+.display-dark {
+    display: none;
+}
+
+/* .image-src-toggle {
+    src: url('file:///F:/FrontEndMentorChallange4/github-user-search-app/starter-code/assets/icon-sun.svg');
+} */
+
+.display-light {
+    color: var(--dark-pure-white);
+}
+
+.search-icon-background {
+    background-color: var(--dark-blue);
+}
+
+.search-button {
+    background-color: var(--dark-blue);
+}
+
+.last-row-adjustments {
+    color: var(--dark-pure-white);
+    background-color: var(--dark-blue);
+}
+
+
+.desc-lst-rowColor {
+    background-color: var(--dark-blue-black);
+}
+
+.date-update {
+    color: var(--dark-pure-white);
+}
+
+
+.lorem-cont {
+    color: var(--dark-pure-white);
+}
+
+
+.prof-color {
+    color: var(--dark-pure-white);
 }
