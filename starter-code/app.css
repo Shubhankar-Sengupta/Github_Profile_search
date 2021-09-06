@@ -233,4 +233,39 @@ body {
        font-size: .7rem;     
    }
 
+   .octocat {
+       margin-left: 1em;
+   }
+
+   .octocat-update {
+    margin-left: 2em; 
+   }
+
+}
+
+
+@media(max-width:375px) {
+
+    .container-2 {
+        grid-template-columns: minmax(20px, .5fr) minmax(20px, .5fr);
+    }
+
+    .lor-content {
+        max-width: 100%;
+    }
+
+    .octocat {
+        margin-left:.5rem;
+        font-size: 1.2rem;
+    }
+ 
+    .octocat-update {
+     margin-left: .5rem; 
+    }
+
+    .br-checkpoint {
+        max-width: 100%;
+        height: auto;
+    }
+
 }
