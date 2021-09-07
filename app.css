@@ -201,11 +201,11 @@ body {
 }
 
 .icon-src {
-    content: url('file:///F:/FrontEndMentorChallange4/github-user-search-app/starter-code/assets/icon-moon.svg');
+    content: url('file:///F:/FrontEndMentorChallange4/github-user-search-app/assets/icon-moon.svg');
 }
 
 .icon-src-alt {
-    content: url('file:///F:/FrontEndMentorChallange4/github-user-search-app/starter-code/assets/icon-sun.svg');
+    content: url('file:///F:/FrontEndMentorChallange4/github-user-search-app/assets/icon-sun.svg');
 }
 
 #basic-addon1 {

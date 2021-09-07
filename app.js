@@ -26,8 +26,8 @@ btnClickable.addEventListener('click', async (evt) => {
     try {
         const inpValue = inputBox.value;
         const data = await axios.get(`https://api.github.com/users/${inpValue}`);
-        console.log(data)
 
+        const profileImg = data.data.avatar_url;
         const bioData = data.data.bio;
         const repos = data.data.public_repos;
         const followers = data.data.followers;
@@ -37,6 +37,7 @@ btnClickable.addEventListener('click', async (evt) => {
         const company = data.data.company;
         const githubProfile = data.data.html_url;
 
+        avatarImg.src = profileImg;
 
         if (location === null) {
             footergitinfo[0].innerHTML = "Not Available";
@@ -64,9 +65,10 @@ btnClickable.addEventListener('click', async (evt) => {
 
 
 
-        if (bioData === '') {
-            "profile has no bio";
+        if (bioData === null) {
+            Loremcontent[0].innerHTML = "profile has no bio";
         }
+
         else Loremcontent[0].innerHTML = bioData;
 
         spansInfo[0].innerHTML = repos;
@@ -78,8 +80,6 @@ btnClickable.addEventListener('click', async (evt) => {
     catch (err) {
         "";
     }
-
-    console.dir(inputBox);
 
 });
 
