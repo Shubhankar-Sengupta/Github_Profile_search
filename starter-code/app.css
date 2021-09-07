@@ -38,8 +38,6 @@
 
 }
 
-
-
 body {
     min-height: 100vh;
     display: flex;
@@ -47,7 +45,6 @@ body {
     font-family: var(--font-body);
     font-weight: var(--body-weight);
     background-color: var(--light-full-saturationwhite);
-    /* background-color: var(--one--solid-fill); */
 }
 
 
@@ -58,10 +55,12 @@ body {
 
 #repo, #followers, #following {
     font-size: 1.1em;
-    font-weight: var(--h2-weight);
-    color: var(--light-black);
+    font-weight: var(--h2-weight);    
 }
 
+.d-block {
+    color: var(--light-black);
+}
 
 .h2 {
     font-weight: var(--h1-weight);
@@ -103,13 +102,14 @@ body {
 .input-group-text {
     padding: 0;
     padding-right: .23rem;
-    background-color: var(--light-full-saturationwhite);
+    background-color: var(--light-nosaturation-white);
     border: none;
 }
 
 .input-group {
     box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.198567);
     border-radius: 15px;
+    color: var(--dark-pure-white);
 }
 
 
@@ -148,11 +148,14 @@ body {
 }
 
 .sm-flex-container {
+    display: flex;
+    flex-direction: column;
     grid-column: 2/-1;
     align-self: flex-end;
 }
 
 .octocat {
+    max-width: max-content;
     font-size: 1.5rem;
     font-weight: var(--h2-weight);
 }
@@ -193,8 +196,19 @@ body {
     align-self: center;
 }
 
+.svg-color-change {
+    color: #fff;
+}
+
+.icon-src {
+    content: url('file:///F:/FrontEndMentorChallange4/github-user-search-app/starter-code/assets/icon-moon.svg');
+}
+
+.icon-src-alt {
+    content: url('file:///F:/FrontEndMentorChallange4/github-user-search-app/starter-code/assets/icon-sun.svg');
+}
+
 #basic-addon1 {
-    background-color: var(--light-nosaturation-white);
     padding-left: .35em;
     border: none;
 }
@@ -230,7 +244,16 @@ body {
    }
 
    .octocat-update {
-    margin-left: 2em; 
+        order: 2;
+        margin-left: 2em;
+   }
+
+   .update {
+       order: 3;
+   }
+
+   .sm-flex-container {
+       display: grid;
    }
 
 }
@@ -268,12 +291,12 @@ body {
     color: var(--dark-pure-white);
 }
 
-.header {
+.control-back {
     color: var(--dark-pure-white);
+    background-color: var(--dark-blue);
 }
 
-.input-box {
-    background-color: var(--dark-blue);
+.header {
     color: var(--dark-pure-white);
 }
 
@@ -286,11 +309,8 @@ body {
     display: none;
 }
 
-/* .image-src-toggle {
-    src: url('file:///F:/FrontEndMentorChallange4/github-user-search-app/starter-code/assets/icon-sun.svg');
-} */
-
 .display-light {
+    display: inline-block;
     color: var(--dark-pure-white);
 }
 
@@ -321,7 +341,11 @@ body {
     color: var(--dark-pure-white);
 }
 
-
 .prof-color {
     color: var(--dark-pure-white);
 }
+
+
+/* .source-image-sun {
+    background-image: url('file:///F:/FrontEndMentorChallange4/github-user-search-app/starter-code/assets/icon-sun.svg');
+} */
