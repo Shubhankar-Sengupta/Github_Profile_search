@@ -141,21 +141,17 @@ body {
 }
 
 .container-2 {
-    padding: 1em;
     display: grid;
-    grid-template-columns: 1fr 3fr 2fr;
-    background-color: inherit;
+    grid-template-columns: 1.5fr 3fr 2fr;
 }
 
 .sm-flex-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns:  1fr 3fr 2fr;
     grid-column: 2/-1;
-    align-self: flex-end;
 }
 
 .octocat {
-    max-width: max-content;
     font-size: 1.5rem;
     font-weight: var(--h2-weight);
 }
@@ -168,6 +164,7 @@ body {
     text-align: end;
     font-size: .75rem;
     color: var(--light-grey);
+    grid-column: 2/4;
 }
 
 .desc-lst-row {
@@ -185,6 +182,7 @@ body {
 .lor-content {
     font-size: .72rem;
     color: var(--light-blue-black);
+    grid-column: 1/4;
 }
 
 .form-control {
@@ -222,14 +220,13 @@ body {
     }
 
     .container-2 {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns:  40% 1fr;
     }
 
     .lor-content {
         grid-column: 1/-1;
         font-size: .7rem;
     }
-
 
     .desc-lst-row {
         width: 100%;
@@ -240,20 +237,19 @@ body {
    }
 
    .octocat {
-       margin-left: 1em;
+        margin-left: 1em;
    }
 
    .octocat-update {
+        grid-row: 2/3;  
         order: 2;
         margin-left: 2em;
    }
 
    .update {
-       order: 3;
-   }
-
-   .sm-flex-container {
-       display: grid;
+        grid-row: 3/4;
+        grid-column: 1/2;
+        order: 3;
    }
 
 }
