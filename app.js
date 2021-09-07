@@ -15,8 +15,7 @@ const profileInfo = document.querySelectorAll('.profile-info');
 const btnClickable = document.querySelector('.btn-sm');
 const footerImages = document.querySelectorAll('.svg-footer-img');
 const spansInfo = document.querySelectorAll('.d-block');
-
-
+const footergitinfo = document.querySelectorAll('.footer-info');
 
 // manipulating elements
 
@@ -27,12 +26,43 @@ btnClickable.addEventListener('click', async (evt) => {
     try {
         const inpValue = inputBox.value;
         const data = await axios.get(`https://api.github.com/users/${inpValue}`);
-
+        console.log(data)
 
         const bioData = data.data.bio;
         const repos = data.data.public_repos;
         const followers = data.data.followers;
         const following = data.data.following;
+        const location = data.data.location;
+        const twitter = data.data.twitter_username;
+        const company = data.data.company;
+        const githubProfile = data.data.html_url;
+
+
+        if (location === null) {
+            footergitinfo[0].innerHTML = "Not Available";
+        }
+
+        else footergitinfo[0].innerHTML = location;
+
+        if (twitter === null) {
+            footergitinfo[1].innerHTML = "Not Available";
+        }
+
+        else footergitinfo[1].innerHTML = twitter;
+
+        if (githubProfile === null) {
+            footergitinfo[2].innerHTML = "Not Available";
+        }
+
+        else footergitinfo[2].innerHTML = githubProfile;
+
+        if (company === null) {
+            footergitinfo[3].innerHTML = "Not Available";
+        }
+        
+        else footergitinfo[3].innerHTML = company;
+
+
 
         if (bioData === '') {
             "profile has no bio";
