@@ -84,7 +84,7 @@ btnClickable.addEventListener('click', async (evt) => {
 
 
     catch (err) {
-        "";
+        console.log(err)
     }
 
 });

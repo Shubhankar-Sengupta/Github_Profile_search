@@ -86,7 +86,7 @@ body {
     display: grid;
     grid-gap:5px;
     grid-template-columns: minmax(15px , 2fr) minmax(400px, 5fr) 2fr;
-    grid-auto-rows: 75px;
+    grid-auto-rows: minmax(75px, 3fr);
 }
 
 .img-fluid, .footer-info {
@@ -135,6 +135,7 @@ body {
     flex-direction: column;
     background-color: var(--light-nosaturation-white);
     border-radius: 1%;
+    height: min-content;
 }
 
 .lorem-height {
@@ -188,12 +189,12 @@ body {
 .lor-content {
     font-size: .72rem;
     color: var(--light-blue-black);
-    grid-column: 2/4;
+    grid-column: 2/-1;
 }
 
 .form-control {
     border: none;
- }
+}
 
 
 .br-checkpoint {
@@ -310,6 +311,7 @@ body {
         justify-self: center;
     }
 }
+
 
 
 /*Classes through JavaScript*/
