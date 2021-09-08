@@ -206,11 +206,11 @@ body {
 }
 
 .icon-src {
-    content: url('file:///F:/FrontEndMentorChallange4/github-user-search-app/assets/icon-moon.svg');
+    content: url('./assets/icon-moon.svg');
 }
 
 .icon-src-alt {
-    content: url('file:///F:/FrontEndMentorChallange4/github-user-search-app/assets/icon-sun.svg');
+    content: url('./assets/icon-sun.svg');
 }
 
 
