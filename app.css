@@ -307,6 +307,7 @@ body {
 @media (min-width:992px) and (max-width:1200px) {
     .call-up-min-content {
         width: min-content;
+        justify-self: center;
     }
 }
 
