@@ -58,6 +58,12 @@ body {
     font-weight: var(--h2-weight);    
 }
 
+
+#basic-addon1 {
+    padding-left: .35em;
+    border: none;
+}
+
 .d-block {
     color: var(--light-black);
 }
@@ -83,7 +89,7 @@ body {
     grid-auto-rows: 75px;
 }
 
-.img-fluid {
+.img-fluid, .footer-info {
     cursor: pointer;
 }
 
@@ -154,6 +160,7 @@ body {
 .octocat {
     font-size: 1.5rem;
     font-weight: var(--h2-weight);
+    width: max-content;
 }
 
 .octocat-update {
@@ -161,7 +168,6 @@ body {
 }   
 
 .update {
-    text-align: end;
     font-size: .75rem;
     color: var(--light-grey);
     grid-column: 2/4;
@@ -182,7 +188,7 @@ body {
 .lor-content {
     font-size: .72rem;
     color: var(--light-blue-black);
-    grid-column: 1/4;
+    grid-column: 2/4;
 }
 
 .form-control {
@@ -191,6 +197,7 @@ body {
 
 
 .br-checkpoint {
+    grid-row: 1/3;
     align-self: center;
 }
 
@@ -206,26 +213,23 @@ body {
     content: url('file:///F:/FrontEndMentorChallange4/github-user-search-app/assets/icon-sun.svg');
 }
 
-#basic-addon1 {
-    padding-left: .35em;
-    border: none;
-}
 
 
-@media(max-width:768px) {
+@media(max-width:992px) {
 
     .container {
-        grid-template-columns: .5fr 1fr  .5fr;
+        grid-template-columns: .5fr 1fr .5fr;
         grid-auto-rows: 90px;
     }
 
     .container-2 {
-        grid-template-columns:  40% 1fr;
+        grid-template-columns:  35% 3fr;
     }
 
     .lor-content {
         grid-column: 1/-1;
         font-size: .7rem;
+        line-height: 1.44rem;
     }
 
     .desc-lst-row {
@@ -237,49 +241,61 @@ body {
    }
 
    .octocat {
-        margin-left: 1em;
+        margin-left: 2em;
+        font-size: 1em;
+        align-self: flex-end;
    }
 
    .octocat-update {
         grid-row: 2/3;  
         order: 2;
         margin-left: 2em;
+        align-self: flex-start;
    }
 
    .update {
         grid-row: 3/4;
         grid-column: 1/2;
         order: 3;
+        width: max-content;
+        font-size: .8em;
+        align-self: flex-start;
+   }
+
+   .sm-flex-container {
+       grid-row: 1/3;
+       align-items: flex-end;
    }
 
 }
 
+@media(max-width:280px) {
 
-@media(max-width:375px) {
+    .container {
+        padding: 0px;
+    }
+}
 
-    .container-2 {
-        grid-template-columns: minmax(20px, .5fr) minmax(20px, .5fr);
-    }
 
-    .lor-content {
-        max-width: 100%;
-    }
+@media (max-width:500px) {
 
-    .octocat {
-        margin-left:.5rem;
-        font-size: 1.2rem;
+    .profile-info {
+        padding-left: 5px;
     }
- 
-    .octocat-update {
-     margin-left: .5rem; 
-    }
+}
+
+
+@media (width:992px) {
 
     .br-checkpoint {
-        max-width: 100%;
-        height: auto;
+        justify-self: center;
     }
 
+    .sm-flex-container {
+        grid-template-rows: 1fr .8fr 1fr;
+    }
 }
+
 
 /*Classes through JavaScript*/
 
@@ -340,8 +356,3 @@ body {
 .prof-color {
     color: var(--dark-pure-white);
 }
-
-
-/* .source-image-sun {
-    background-image: url('file:///F:/FrontEndMentorChallange4/github-user-search-app/starter-code/assets/icon-sun.svg');
-} */

@@ -17,6 +17,7 @@ const footerImages = document.querySelectorAll('.svg-footer-img');
 const spansInfo = document.querySelectorAll('.d-block');
 const footergitinfo = document.querySelectorAll('.footer-info');
 
+
 // manipulating elements
 
 btnClickable.addEventListener('click', async (evt) => {
@@ -26,6 +27,7 @@ btnClickable.addEventListener('click', async (evt) => {
     try {
         const inpValue = inputBox.value;
         const data = await axios.get(`https://api.github.com/users/${inpValue}`);
+        footergitinfo[2].href = `https://github.com/${inpValue}`;
 
         const profileImg = data.data.avatar_url;
         const bioData = data.data.bio;
