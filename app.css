@@ -134,7 +134,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: var(--light-nosaturation-white);
-    border-radius: 1%;
+    border-radius: .25rem;
     height: min-content;
 }
 
