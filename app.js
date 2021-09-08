@@ -16,6 +16,7 @@ const btnClickable = document.querySelector('.btn-sm');
 const footerImages = document.querySelectorAll('.svg-footer-img');
 const spansInfo = document.querySelectorAll('.d-block');
 const footergitinfo = document.querySelectorAll('.footer-info');
+const dateOfJoining = document.querySelector('.joining');
 
 
 // manipulating elements
@@ -29,6 +30,7 @@ btnClickable.addEventListener('click', async (evt) => {
         const data = await axios.get(`https://api.github.com/users/${inpValue}`);
         footergitinfo[2].href = `https://github.com/${inpValue}`;
 
+        const joining = data.data.created_at;
         const profileImg = data.data.avatar_url;
         const bioData = data.data.bio;
         const repos = data.data.public_repos;
@@ -76,6 +78,8 @@ btnClickable.addEventListener('click', async (evt) => {
         spansInfo[0].innerHTML = repos;
         spansInfo[1].innerHTML = followers;
         spansInfo[2].innerHTML = following;
+        dateOfJoining.innerHTML = joining;
+        updateDate.classList.add('call-up-min-content');
     }
 
 

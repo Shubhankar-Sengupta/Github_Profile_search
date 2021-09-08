@@ -214,7 +214,6 @@ body {
 }
 
 
-
 @media(max-width:992px) {
 
     .container {
@@ -267,7 +266,15 @@ body {
        align-items: flex-end;
    }
 
+
+   .call-up-min-content {
+       width: min-content;
+       justify-self: center;
+   }
+
 }
+
+
 
 @media(max-width:280px) {
 
@@ -293,6 +300,13 @@ body {
 
     .sm-flex-container {
         grid-template-rows: 1fr .8fr 1fr;
+    }
+}
+
+
+@media (min-width:992px) and (max-width:1200px) {
+    .call-up-min-content {
+        width: min-content;
     }
 }
 
