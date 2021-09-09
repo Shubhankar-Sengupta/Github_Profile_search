@@ -62,6 +62,14 @@ btnClickable.addEventListener('click', async (evt) => {
             const twitter = data.data.twitter_username;
             const company = data.data.company;
             const githubProfile = data.data.html_url;
+            const year = j_date.slice(0,4);
+            const month = j_date.slice(5,7);
+            const day = j_date.slice(8,10);
+
+            const array = [];
+            array.push(day, month, year)
+            const newDate = array.join('/');
+            
             
             avatarImg.src = profileImg;
 
@@ -100,7 +108,7 @@ btnClickable.addEventListener('click', async (evt) => {
             spansInfo[0].innerHTML = repos;
             spansInfo[1].innerHTML = followers;
             spansInfo[2].innerHTML = following;
-            dateOfJoining.innerHTML = j_date;
+            dateOfJoining.innerHTML = newDate;
 
         }
     }
