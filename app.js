@@ -23,13 +23,11 @@ const octocat_name = document.querySelector(`.octocat-update`);
 
 // manipulating elements.
 
-inputBox.addEventListener('change', (evt) => {
+inputBox.addEventListener('change', async (evt) => {
 
     if (inputBox.value === "") {
         refresh();
     }
-
-    else return;
 })
 
 
@@ -51,75 +49,77 @@ btnClickable.addEventListener('click', async (evt) => {
             const data = await axios.get(`https://api.github.com/users/${inpValue}`);
             footergitinfo[2].href = `https://github.com/${inpValue}`;
 
-            if (inpValue !== data.data.login) {
+            if (inputBox.value !== data.data.login) {
                 noResults.style.display = `flex`;
                 return;
             }
-            
-            const joining = data.data.created_at;
-            const j_date = joining.slice(0, 10);
-            const profileImg = data.data.avatar_url;
-            const bioData = data.data.bio;
-            const repos = data.data.public_repos;
-            const followers = data.data.followers;
-            const following = data.data.following;
-            const location = data.data.location;
-            const twitter = data.data.twitter_username;
-            const company = data.data.company;
-            const githubProfile = data.data.html_url;
-            const year = j_date.slice(0, 4);
-            const day = j_date.slice(8, 10);
 
-            const array = [];
-            const dateForm = new Date(j_date);
-            const options = { month: 'long' };
-            const month = new Intl.DateTimeFormat('en-US', options).format(dateForm);
-            const shortMonth = month.slice(0, 3);
-            array.push(day, shortMonth, year)
-            const newDate = array.join(' ');
+            else {
+                const joining = data.data.created_at;
+                const j_date = joining.slice(0, 10);
+                const profileImg = data.data.avatar_url;
+                const bioData = data.data.bio;
+                const repos = data.data.public_repos;
+                const followers = data.data.followers;
+                const following = data.data.following;
+                const location = data.data.location;
+                const twitter = data.data.twitter_username;
+                const company = data.data.company;
+                const githubProfile = data.data.html_url;
+                const year = j_date.slice(0, 4);
+                const day = j_date.slice(8, 10);
+
+                const array = [];
+                const dateForm = new Date(j_date);
+                const options = { month: 'long' };
+                const month = new Intl.DateTimeFormat('en-US', options).format(dateForm);
+                const shortMonth = month.slice(0, 3);
+                array.push(day, shortMonth, year)
+                const newDate = array.join(' ');
 
 
-            avatarImg.src = profileImg;
+                avatarImg.src = profileImg;
 
-            if (location === null) {
-                footergitinfo[0].innerHTML = "Not Available";
+                if (location === null) {
+                    footergitinfo[0].innerHTML = "Not Available";
+                }
+
+                else footergitinfo[0].innerHTML = location;
+
+                if (twitter === null) {
+                    footergitinfo[1].innerHTML = "Not Available";
+                }
+
+                else footergitinfo[1].innerHTML = twitter;
+
+                if (githubProfile === null) {
+                    footergitinfo[2].innerHTML = "Not Available";
+                }
+
+                else footergitinfo[2].innerHTML = githubProfile;
+
+                if (company === null) {
+                    footergitinfo[3].innerHTML = "Not Available";
+                }
+
+                else footergitinfo[3].innerHTML = company;
+
+
+
+                if (bioData === null) {
+                    Loremcontent[0].innerHTML = "profile has no bio";
+                }
+
+                else Loremcontent[0].innerHTML = bioData;
+
+                spansInfo[0].innerHTML = repos;
+                spansInfo[1].innerHTML = followers;
+                spansInfo[2].innerHTML = following;
+                dateOfJoining.innerHTML = newDate;
+                octocat_name.innerHTML = `@${data.data.name}`;
+                octocat_name.style.fontSize = `.8rem`;
+
             }
-
-            else footergitinfo[0].innerHTML = location;
-
-            if (twitter === null) {
-                footergitinfo[1].innerHTML = "Not Available";
-            }
-
-            else footergitinfo[1].innerHTML = twitter;
-
-            if (githubProfile === null) {
-                footergitinfo[2].innerHTML = "Not Available";
-            }
-
-            else footergitinfo[2].innerHTML = githubProfile;
-
-            if (company === null) {
-                footergitinfo[3].innerHTML = "Not Available";
-            }
-
-            else footergitinfo[3].innerHTML = company;
-
-
-
-            if (bioData === null) {
-                Loremcontent[0].innerHTML = "profile has no bio";
-            }
-
-            else Loremcontent[0].innerHTML = bioData;
-
-            spansInfo[0].innerHTML = repos;
-            spansInfo[1].innerHTML = followers;
-            spansInfo[2].innerHTML = following;
-            dateOfJoining.innerHTML = newDate;
-            octocat_name.innerHTML = `@${data.data.name}`;
-            octocat_name.style.fontSize = `.8rem`;
-
         }
     }
 
@@ -198,4 +198,5 @@ function refresh() {
     Quisque
     volutpat mattis eros`;
     octocat_name.innerHTML = '@octocat';
+    noResults.style.display = `none`;
 }
