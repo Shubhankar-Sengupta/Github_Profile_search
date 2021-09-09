@@ -50,7 +50,6 @@ btnClickable.addEventListener('click', async (evt) => {
             noResults.style.display = `none`;
             const data = await axios.get(`https://api.github.com/users/${inpValue}`);
 
-            console.log(data)
             footergitinfo[2].href = `https://github.com/${inpValue}`;
 
             const joining = data.data.created_at;
@@ -65,12 +64,15 @@ btnClickable.addEventListener('click', async (evt) => {
             const company = data.data.company;
             const githubProfile = data.data.html_url;
             const year = j_date.slice(0,4);
-            const month = j_date.slice(5,7);
             const day = j_date.slice(8,10);
 
             const array = [];
-            array.push(day, month, year)
-            const newDate = array.join('/');
+            const dateForm = new Date(j_date);
+            const options = {month:'long'};
+            const month = new Intl.DateTimeFormat('en-US', options).format(dateForm);
+            const shortMonth = month.slice(0,3);
+            array.push(day, shortMonth, year)
+            const newDate = array.join(' ');
             
             
             avatarImg.src = profileImg;
