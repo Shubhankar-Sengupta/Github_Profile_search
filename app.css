@@ -276,7 +276,6 @@ body {
 }
 
 
-
 @media(max-width:280px) {
 
     .container {
@@ -372,4 +371,10 @@ body {
 
 .prof-color {
     color: var(--dark-pure-white);
+}
+
+
+.d-no-rel {
+    display: none;
+    border-radius: 0px;
 }

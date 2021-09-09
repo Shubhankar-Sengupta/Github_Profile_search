@@ -17,74 +17,97 @@ const footerImages = document.querySelectorAll('.svg-footer-img');
 const spansInfo = document.querySelectorAll('.d-block');
 const footergitinfo = document.querySelectorAll('.footer-info');
 const dateOfJoining = document.querySelector('.joining');
+const noResults = document.querySelector('.no-result');
 
 
-// manipulating elements
+// manipulating elements.
+
+inputBox.addEventListener('change', (evt) => {
+
+    if (inputBox.value === "") {
+        refresh();
+    }
+
+    else return;
+})
+
 
 btnClickable.addEventListener('click', async (evt) => {
 
-    evt.preventDefault();
+    evt.preventDefault(); // prevents sending default request.
 
     try {
         const inpValue = inputBox.value;
-        const data = await axios.get(`https://api.github.com/users/${inpValue}`);
-        footergitinfo[2].href = `https://github.com/${inpValue}`;
 
-        const joining = data.data.created_at;
-        const profileImg = data.data.avatar_url;
-        const bioData = data.data.bio;
-        const repos = data.data.public_repos;
-        const followers = data.data.followers;
-        const following = data.data.following;
-        const location = data.data.location;
-        const twitter = data.data.twitter_username;
-        const company = data.data.company;
-        const githubProfile = data.data.html_url;
-
-        avatarImg.src = profileImg;
-
-        if (location === null) {
-            footergitinfo[0].innerHTML = "Not Available";
+        if (inputBox.value === "") {
+            noResults.style.display = `flex`;
+            return;
         }
 
-        else footergitinfo[0].innerHTML = location;
+        else {
 
-        if (twitter === null) {
-            footergitinfo[1].innerHTML = "Not Available";
+            noResults.style.display = `none`;
+            const data = await axios.get(`https://api.github.com/users/${inpValue}`);
+
+            footergitinfo[2].href = `https://github.com/${inpValue}`;
+
+            const joining = data.data.created_at;
+            const profileImg = data.data.avatar_url;
+            const bioData = data.data.bio;
+            const repos = data.data.public_repos;
+            const followers = data.data.followers;
+            const following = data.data.following;
+            const location = data.data.location;
+            const twitter = data.data.twitter_username;
+            const company = data.data.company;
+            const githubProfile = data.data.html_url;
+
+            avatarImg.src = profileImg;
+
+            if (location === null) {
+                footergitinfo[0].innerHTML = "Not Available";
+            }
+
+            else footergitinfo[0].innerHTML = location;
+
+            if (twitter === null) {
+                footergitinfo[1].innerHTML = "Not Available";
+            }
+
+            else footergitinfo[1].innerHTML = twitter;
+
+            if (githubProfile === null) {
+                footergitinfo[2].innerHTML = "Not Available";
+            }
+
+            else footergitinfo[2].innerHTML = githubProfile;
+
+            if (company === null) {
+                footergitinfo[3].innerHTML = "Not Available";
+            }
+
+            else footergitinfo[3].innerHTML = company;
+
+
+
+            if (bioData === null) {
+                Loremcontent[0].innerHTML = "profile has no bio";
+            }
+
+            else Loremcontent[0].innerHTML = bioData;
+
+            spansInfo[0].innerHTML = repos;
+            spansInfo[1].innerHTML = followers;
+            spansInfo[2].innerHTML = following;
+            dateOfJoining.innerHTML = joining;
+            updateDate.classList.add('call-up-min-content');
+
+
         }
-
-        else footergitinfo[1].innerHTML = twitter;
-
-        if (githubProfile === null) {
-            footergitinfo[2].innerHTML = "Not Available";
-        }
-
-        else footergitinfo[2].innerHTML = githubProfile;
-
-        if (company === null) {
-            footergitinfo[3].innerHTML = "Not Available";
-        }
-        
-        else footergitinfo[3].innerHTML = company;
-
-
-
-        if (bioData === null) {
-            Loremcontent[0].innerHTML = "profile has no bio";
-        }
-
-        else Loremcontent[0].innerHTML = bioData;
-
-        spansInfo[0].innerHTML = repos;
-        spansInfo[1].innerHTML = followers;
-        spansInfo[2].innerHTML = following;
-        dateOfJoining.innerHTML = joining;
-        updateDate.classList.add('call-up-min-content');
     }
 
-
     catch (err) {
-        console.log(err)
+        "";
     }
 
 });
@@ -104,6 +127,7 @@ function toggleContent() {
     searchButton.classList.toggle('search-button');
     desclastRow.classList.toggle('desc-lst-rowColor');
     image.classList.toggle('icon-src-alt');
+    noResults.classList.toggle('search-button');
 
 
     for (let cont of Loremcontent) {
@@ -136,3 +160,26 @@ function toggleContent() {
 
 
 image.addEventListener('click', toggleContent)
+
+
+
+function refresh() {
+
+    avatarImg.src = "./assets/Bitmap.svg";
+    footergitinfo[0].innerHTML = 'San Francisco';
+    footergitinfo[1].innerHTML = 'Not Available';
+    footergitinfo[2].innerHTML = 'https://github.blog';
+    footergitinfo[3].innerHTML = '@github';
+
+    spansInfo[0].innerHTML = 8;
+    spansInfo[1].innerHTML = 1908;
+    spansInfo[2].innerHTML = 200;
+    dateOfJoining.innerHTML = `25/6/2021`;
+    Loremcontent[0].innerHTML = `Lorem ipsum dolor sit amet, consectetuer
+    adipiscing elit.
+    Donec odio.
+    Quisque
+    volutpat mattis eros`;
+    updateDate.classList.remove('call-up-min-content');
+
+}
