@@ -38,7 +38,7 @@ btnClickable.addEventListener('click', async (evt) => {
     try {
         const inpValue = inputBox.value;
 
-        if (inputBox.value === "") {
+        if (inpValue === "") {
             noResults.style.display = `flex`;
             return;
         }
@@ -49,7 +49,7 @@ btnClickable.addEventListener('click', async (evt) => {
             const data = await axios.get(`https://api.github.com/users/${inpValue}`);
             footergitinfo[2].href = `https://github.com/${inpValue}`;
 
-            if (inputBox.value !== data.data.login) {
+            if (inpValue !== data.data.login) {
                 noResults.style.display = `flex`;
                 return;
             }
