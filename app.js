@@ -18,6 +18,7 @@ const spansInfo = document.querySelectorAll('.d-block');
 const footergitinfo = document.querySelectorAll('.footer-info');
 const dateOfJoining = document.querySelector('.joining');
 const noResults = document.querySelector('.no-result');
+const octocat_name = document.querySelector(`.octocat-update`);
 
 
 // manipulating elements.
@@ -49,6 +50,7 @@ btnClickable.addEventListener('click', async (evt) => {
             noResults.style.display = `none`;
             const data = await axios.get(`https://api.github.com/users/${inpValue}`);
 
+            console.log(data)
             footergitinfo[2].href = `https://github.com/${inpValue}`;
 
             const joining = data.data.created_at;
@@ -109,6 +111,8 @@ btnClickable.addEventListener('click', async (evt) => {
             spansInfo[1].innerHTML = followers;
             spansInfo[2].innerHTML = following;
             dateOfJoining.innerHTML = newDate;
+            octocat_name.innerHTML = `@${data.data.name}`;
+            octocat_name.style.fontSize = `.8rem`;
 
         }
     }
