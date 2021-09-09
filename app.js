@@ -49,9 +49,13 @@ btnClickable.addEventListener('click', async (evt) => {
 
             noResults.style.display = `none`;
             const data = await axios.get(`https://api.github.com/users/${inpValue}`);
-
             footergitinfo[2].href = `https://github.com/${inpValue}`;
 
+            if (inpValue !== data.data.login) {
+                noResults.style.display = `flex`;
+                return;
+            }
+            
             const joining = data.data.created_at;
             const j_date = joining.slice(0, 10);
             const profileImg = data.data.avatar_url;
@@ -63,18 +67,18 @@ btnClickable.addEventListener('click', async (evt) => {
             const twitter = data.data.twitter_username;
             const company = data.data.company;
             const githubProfile = data.data.html_url;
-            const year = j_date.slice(0,4);
-            const day = j_date.slice(8,10);
+            const year = j_date.slice(0, 4);
+            const day = j_date.slice(8, 10);
 
             const array = [];
             const dateForm = new Date(j_date);
-            const options = {month:'long'};
+            const options = { month: 'long' };
             const month = new Intl.DateTimeFormat('en-US', options).format(dateForm);
-            const shortMonth = month.slice(0,3);
+            const shortMonth = month.slice(0, 3);
             array.push(day, shortMonth, year)
             const newDate = array.join(' ');
-            
-            
+
+
             avatarImg.src = profileImg;
 
             if (location === null) {
@@ -177,6 +181,7 @@ image.addEventListener('click', toggleContent)
 
 
 function refresh() {
+
     avatarImg.src = "./assets/Bitmap.svg";
     footergitinfo[0].innerHTML = 'San Francisco';
     footergitinfo[1].innerHTML = 'Not Available';
@@ -186,10 +191,11 @@ function refresh() {
     spansInfo[0].innerHTML = 8;
     spansInfo[1].innerHTML = 1908;
     spansInfo[2].innerHTML = 200;
-    dateOfJoining.innerHTML = `25/6/2021`;
+    dateOfJoining.innerHTML = `25 Jun 2021`;
     Loremcontent[0].innerHTML = `Lorem ipsum dolor sit amet, consectetuer
     adipiscing elit.
     Donec odio.
     Quisque
     volutpat mattis eros`;
+    octocat_name.innerHTML = '@octocat';
 }
