@@ -52,6 +52,7 @@ btnClickable.addEventListener('click', async (evt) => {
             footergitinfo[2].href = `https://github.com/${inpValue}`;
 
             const joining = data.data.created_at;
+            const j_date = joining.slice(0, 10);
             const profileImg = data.data.avatar_url;
             const bioData = data.data.bio;
             const repos = data.data.public_repos;
@@ -61,7 +62,7 @@ btnClickable.addEventListener('click', async (evt) => {
             const twitter = data.data.twitter_username;
             const company = data.data.company;
             const githubProfile = data.data.html_url;
-
+            
             avatarImg.src = profileImg;
 
             if (location === null) {
@@ -99,9 +100,7 @@ btnClickable.addEventListener('click', async (evt) => {
             spansInfo[0].innerHTML = repos;
             spansInfo[1].innerHTML = followers;
             spansInfo[2].innerHTML = following;
-            dateOfJoining.innerHTML = joining;
-            updateDate.classList.add('call-up-min-content');
-
+            dateOfJoining.innerHTML = j_date;
 
         }
     }
@@ -164,7 +163,6 @@ image.addEventListener('click', toggleContent)
 
 
 function refresh() {
-
     avatarImg.src = "./assets/Bitmap.svg";
     footergitinfo[0].innerHTML = 'San Francisco';
     footergitinfo[1].innerHTML = 'Not Available';
@@ -180,6 +178,4 @@ function refresh() {
     Donec odio.
     Quisque
     volutpat mattis eros`;
-    updateDate.classList.remove('call-up-min-content');
-
 }
